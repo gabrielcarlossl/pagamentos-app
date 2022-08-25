@@ -21,6 +21,7 @@ const creditSchema = new mongoose.Schema({
 // NOME String, requerido,
 // VALUE Number, com o minimo 0 e também requerido
 // STATUS string, não requerido, com a função uppercase,  e ele estará dentro de uma enumeração que é os tipos {PAGO, PENDENTE E AGENDADO}
+
 const debtSchema = new mongoose.Schema({
     name: {type: String, required: true},
     value: {type: Number, min: 0, required: true},
@@ -35,6 +36,7 @@ const debtSchema = new mongoose.Schema({
 // ANO Number, min 1970, max 2100, requerido
 // CREDITS apontado para o creditSchema criado anteriormente
 // DEBTS apontado para o debtSchema criado anteriormente
+
 const billingCycleSchema = new mongoose.Schema({
     name: {type: String, required: true},
     month: {type: Number, min: 1, max: 12, required: true },
@@ -44,4 +46,5 @@ const billingCycleSchema = new mongoose.Schema({
 })
 
 // Exportar o modulo colocando o billingCycleSchema para dizer como ele sera persistido no mongoDB
+
 module.exports = restful.model('BillingCycle', billingCycleSchema)
