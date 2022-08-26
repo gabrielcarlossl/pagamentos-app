@@ -27,4 +27,16 @@ BillingCycle.route("get", (req, res, next) => {
   });
 });
 
+// Serviço para calcular a quantidade de pagamentos cadastrados, vai saber a quantidade de paginas
+
+BillingCycle.route('count',(req, res, next) => {
+  BillingCycle.count((error, value) => {
+    if (error){
+      res.status(500).jason({erros: [error]})
+    }else {
+      res.json({value})
+    }
+  })
+})
+
 module.exports = BillingCycle;

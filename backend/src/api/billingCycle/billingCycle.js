@@ -24,7 +24,7 @@ const creditSchema = new mongoose.Schema({
 
 const debtSchema = new mongoose.Schema({
     name: {type: String, required: true},
-    value: {type: Number, min: 0, required: true},
+    value: {type: Number, min: 0, required: [true, 'Informe o valor do débito!']}, // Quando colocado o valor e a string, será a mensagem apresentada quando não informar esse valor que é obrigatório
     status: {type: String, required: false, uppercase: true, 
         enum: ['PAGO', 'PENDENTE', 'AGENDADO']}
 })

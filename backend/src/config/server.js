@@ -13,6 +13,7 @@ const bodyParser = require('body-parser')
 // sempre que faz o require no modulo node é retornado uma instancia unica
 
 const express = require('express')
+const mongoose = require('mongoose')
 
 // instanciando o express, ele faz a referenica do servidor, sempre que fizer a chamada dessa função ele 
 // ira retornar uma nova instancia do express, sempre retornara um novo servidor 
@@ -32,3 +33,4 @@ server.listen(port, function(){
 })
 
 module.exports = server;
+
