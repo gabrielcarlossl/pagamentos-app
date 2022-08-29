@@ -20,11 +20,19 @@ const mongoose = require('mongoose')
 
 const server = express()
 
+const allowCors = require('./cors') // referencia para requisição do CORS
+
+const queryParser = require('express-query-int') // converte string para valor numerico int
+
 // esse middleware para ser intercpetado pela requisição
 
 server.use(bodyParser.urlencoded({extended: true})) // urlEncoded é o padrão quando formulario é submetido, utilizando modo extendido ele consegue interpretar mais dados
 
 server.use(bodyParser.json()) // middleware para fazer parser quando no corpo da requisição vier um JSON
+
+server.use(allowCors) // permitir no servidor a utilização do cors
+
+server.use(queryParser) // permitir no servidor converter string para int
 
 // Metodo listen para escutar uma porta e caso a porta seja alocada ele irá imprimir a mensagem.
 
