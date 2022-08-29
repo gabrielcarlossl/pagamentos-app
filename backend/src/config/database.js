@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 
 mongoose.Promise = global.Promise // Vai pegar a API de promises do NODE global e vai atribuir a API para o mongoose
 
-module.exports = mongoose.connect('mongodb://localhost/pagamentos') // vai exportar a conexão do MongoDB, 
+module.exports = mongoose.connect('mongodb://localhost/pagamentos', { useNewUrlParser: true }) // vai exportar a conexão do MongoDB, 
 // deve fazer uma referencia desse arquivo "DATABASE.JS" dentro do arquivo LOADER.JS 
 
 // traduções das mensagem de error quando for receber a mensagem de error no postman
