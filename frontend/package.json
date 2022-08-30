@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --progress --colors --inline --hot", // isso faz ele monitorar para quando houver alguma mudança ele ja recarrega o browser 
+    "dev": "webpack-dev-server --progress --colors --inline --hot", 
     "production": "webpack --progress -p"
   },
   "keywords": [],
