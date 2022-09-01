@@ -4,6 +4,7 @@ import React from "react";
 import Header from '../common/template/header';
 import Sidebar from '../common/template/sidebar';
 import Footer from '../common/template/footer'
+import Routes from './routes'
 
 export default function App (props) {
        return ( // classe do admin LTE Wrapper significa uma div que envolve todo o site
@@ -11,7 +12,7 @@ export default function App (props) {
             <Header></Header>
             <Sidebar></Sidebar>
             <div className='content-wrapper'>
-                <h1>Conteudo</h1>
+                <Routes></Routes>
             </div>
             <Footer></Footer>
 
