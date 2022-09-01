@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import { connect, Connect } from "react-redux";
+import { bindActionCreators } from "redux";
 
+import { getSummary } from "./dashboardActions";
 import ContentHeader from '../common/template/contentHeader'
 import Content from '../common/template/content'
 import ValueBox from '../common/widget/valueBox'
@@ -35,3 +37,10 @@ const mapStateToProps = state =>({
 // vai retornar o dashboard integrado com o estado mapeado
 
 export default connect(mapStateToProps)(Dashboard)
+
+// para conseguir chamar o action creactor deve ser bindado a função
+
+// o bindActionCreators ele faz a ligação de todas as actions creators e liga com o dispatch, o dispatch dispara a ação,
+// sempre que chamar o metodo getSummary automaticamente ele vai fazer o dispatch pra todos os reducers da aplicação
+
+const mapDispatchToProps = dispatch => bindActionCreators({getSummary}, dispatch)
