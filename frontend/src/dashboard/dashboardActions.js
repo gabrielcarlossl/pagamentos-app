@@ -1,4 +1,4 @@
-import Axios from "axios";
+import axios from "axios";
 
 // o axios é o client http
 // por ele faz as requisições no backend
