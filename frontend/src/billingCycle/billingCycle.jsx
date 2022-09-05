@@ -1,12 +1,13 @@
 import React, {Component} from "react";
-
+import ContentHeader from "../common/template/contentHeader";
+import Content from "../common/template/content";
 class BillingCycle extends Component {
     render(){
         return(
             <div>
                 <ContentHeader title='Pagamentos'small='Cadastro' />
                 <Content>
-                    <h1>Pagamentos</h1>
+                    Pagamentos
                 </Content>
             </div>
         )
