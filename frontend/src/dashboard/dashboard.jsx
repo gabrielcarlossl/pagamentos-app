@@ -37,14 +37,14 @@ class Dashboard extends Component {
 // metodo mapStateToProps: ele recebe a função que tem o paramentro estado que é uma arrow function que vai retornar um objeto
 // o objeto retornado vai ensinar ao react redux de como ele vai tirar o dado da store e que dado do state vai ser adicionado as propriedades do componente dashboard 
 
-const mapStateToProps = state =>({ summary: state.dashboard.summary })
+const mapStateToProps = (state) =>({ summary: state.dashboard.summary })
 
 // para conseguir chamar o action creactor deve ser bindado a função
 
 // o bindActionCreators ele faz a ligação de todas as actions creators e liga com o dispatch, o dispatch dispara a ação,
 // sempre que chamar o metodo getSummary automaticamente ele vai fazer o dispatch pra todos os reducers da aplicação
 
-const mapDispatchToProps = dispatch => bindActionCreators({getSummary}, dispatch)
+const mapDispatchToProps = (dispatch) => bindActionCreators({getSummary}, dispatch)
 
 // vai retornar o dashboard integrado com o estado mapeado
 

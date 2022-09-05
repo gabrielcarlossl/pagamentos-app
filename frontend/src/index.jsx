@@ -10,7 +10,8 @@ import reducers from "./main/reducers";
 // o store é o estado unico da aplicação, gerado pelas combinações dos reducers
 // a aplicação fica integrada com o redux depois de envolver ela pelo PROVIDER
 
-const store = applyMiddleware(promise)(createStore)(reducers);
+const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+const store = applyMiddleware(promise)(createStore)(reducers, devTools);
 ReactDOM.render(
   <Provider store={store}>
     <App />

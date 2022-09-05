@@ -23,13 +23,13 @@ BillingCycle.after('post', errorHandler).after('put', errorHandler) // para inte
 
 BillingCycle.route("get", (req, res, next) => {
   BillingCycle.find({}, (err, docs) => {
-    if (!err) {
-      res.json(docs);
-    } else {
-      res.status(500).json({ errors: [error] });
-    }
-  });
-});
+    if(!err) {
+      res.json(docs)
+  } else {
+      res.status(500).json({errors: [error]})
+  }
+}).skip(req.query.skip).limit(req.query.limit)
+})
 
 // Serviço para calcular a quantidade de pagamentos cadastrados, vai saber a quantidade de paginas
 // uma nova rota, que se chama "COUNT" para quando colocar no link /count, ele mostrar a quantidade de pagamentos cadastrados
@@ -66,7 +66,7 @@ BillingCycle.route('summary', (req, res, next) => {
     }, { 
       
     $project: {_id: 0, credit: 1, debt: 1}// colocando 0 não vai aparecer // por fim extrair o resultado para que saia apenas credit e debt
-  }, (error, result) => { 
+  }], (error, result) => { 
 
     // por ultimo uma callback que sera chamada depois que acabar a pipe line, se houver erro será tratada, 
     if(error) {
@@ -74,7 +74,7 @@ BillingCycle.route('summary', (req, res, next) => {
   } else {
       res.json(result[0] || {credit: 0, debt: 0})
   }
-  }])
+  })
 })
 
 module.exports = BillingCycle;

@@ -31,7 +31,8 @@ server.use(bodyParser.urlencoded({extended: true})) // urlEncoded é o padrão q
 server.use(bodyParser.json()) // middleware para fazer parser quando no corpo da requisição vier um JSON
 
 server.use(allowCors) // permitir no servidor a utilização do cors
-
+const cors = require('cors')
+server.use(cors())
 server.use(queryParser()) // permitir no servidor converter string para int
 
 // Metodo listen para escutar uma porta e caso a porta seja alocada ele irá imprimir a mensagem.

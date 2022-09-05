@@ -9,9 +9,7 @@ const BASE_URL = 'http://localhost:3003/api'
 export function getSummary(){
     const request = axios.get(`${BASE_URL}/billingCycles/summary`) // essa é uma requisição assincrona, esse request vai armazenar uma promise que vai ser resolvida quando o resultado chegar
 
-    // vai retornar um objeto, a função é um action creactor, ele cria um objeto que é uma ação, que tem um atributo type obrigatorio. 
-
-    return {
+    return { // vai retornar um objeto, a função é um action creactor, ele cria um objeto que é uma ação, que tem um atributo type obrigatorio. 
         type: 'BILLING_SUMMARY_FETCHED',
         payload: request
     }

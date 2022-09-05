@@ -1,7 +1,7 @@
 // referencia do lodash padrão é o underline 
 
 const _ = require('lodash')
-
+const nodeRestful = require("node-restful")
 // padrao de assinatura de um middleware request, respo
 
 
