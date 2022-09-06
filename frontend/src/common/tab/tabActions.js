@@ -11,3 +11,18 @@ export function selectTab(tabId){
         payload: tabId
     }
 }
+
+// ação para dependendo da aba selecionada o componente das abas deve mostrar ou não algumas abas
+// função vai receber varis parametros passado no parametro
+export function showTabs(...tabIds){
+    // objeto que vai ter varios atributo, cada atributo é uma aba que deve ser exibida
+
+    const tabsToShow ={}
+
+    // esta pegando o objeto com nenhum atributo, coloca o atributo dentro do objeto,
+    tabIds.forEach(e => tabsToShow[e]=  true )
+    return {
+        type: 'TAB_SHOWED',
+        payload: tabsToShow
+    }
+}

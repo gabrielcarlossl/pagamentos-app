@@ -2,7 +2,7 @@
 
 // estado inicial, SELECTED
 
-const INITIAL_STATE = { selected: ''}
+const INITIAL_STATE = { selected: '', visible: {}}
 
 // variavel state é um parametro padrão, se ele estiver undefined ele irá para o valor inicial
 
@@ -15,6 +15,8 @@ export default (state= INITIAL_STATE, action) => {
     switch(action.type){
         case 'TAB_SELECTED':
             return {...state, selected: action.payload }
+        case 'TAB_SHOWED':
+            return {...state, visible: action.payload}
         default: return state
     }
 }

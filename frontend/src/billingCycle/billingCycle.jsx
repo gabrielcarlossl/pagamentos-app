@@ -10,13 +10,14 @@ import TabsHeader from "../common/tab/tabsHeader";
 import TabsContent from "../common/tab/tabsContent";
 import TabHeader from "../common/tab/tabHeader";
 import TabContent from "../common/tab/tabContent";
-import { selectTab } from "../common/tab/tabActions";
+import { selectTab, showTabs } from "../common/tab/tabActions";
 
 class BillingCycle extends Component {
 
     // função para colocar inicialização padrão da aba
     componentWillMount(){
         this.props.selectTab('tabList')
+        this.props.showTabs('tabList', 'tabCreate')
     }
     render(){
         return(
@@ -47,5 +48,5 @@ class BillingCycle extends Component {
 
 // a função dispatch vai disparar a ação que vai mudar o estado do objeto para selecionar a aba
 // o mapdispatch recebe o dispatch como parametro e vai chamar a bind fazendo com que o select tab esteja disponivel dentro do componente a partir das props
-const mapDispatchToProps = dispatch => bindActionCreators({selectTab}, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({selectTab, showTabs}, dispatch)
 export default connect(null, mapDispatchToProps)(BillingCycle)
