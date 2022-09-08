@@ -5,7 +5,7 @@ import axios from "axios";
 
 const BASE_URL = 'http://localhost:3003/api'
 
-// a função faz a requisição no back do summary
+// a função faz a requisição no back do summary, faz uma requisição  ao axios o metodo get, que retorna um request
 export function getSummary(){
     const request = axios.get(`${BASE_URL}/billingCycles/summary`) // essa é uma requisição assincrona, esse request vai armazenar uma promise que vai ser resolvida quando o resultado chegar
 
