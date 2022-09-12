@@ -8,3 +8,11 @@ export function getList() {
         payload: request
     }
 }
+
+// fazer a chamada da api do backend fazendo o post dos valores o objeto do metodo create
+export function create(values){
+    axios.post(`${BASE_URL}/billingCycles`, values)
+    return {
+        type: 'TEMP'
+    }
+}
