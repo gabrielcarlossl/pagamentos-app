@@ -22,6 +22,24 @@ export function create(values) {
 export function update(values) {
   return submit(values, 'put')
 }
+export function remove(values) {
+  return submit(values, 'delete')
+}
+
+function mensagem(method){
+  let operacao = ''
+  if(method == 'put'){
+    operacao = 'Alterado'
+  }
+  else if(method == 'delete'){
+    operacao = 'Removido'
+  }
+  else if(method == 'post'){
+    operacao = 'Inserido'
+  }
+  
+  return operacao
+}
 
 function submit(values, method) {
   return dispatch => {
@@ -29,7 +47,7 @@ function submit(values, method) {
 
     axios[method](`${BASE_URL}/billingCycles/${id}`, values)
       .then((resp) => {
-        toastr.success("Sucesso", "Operação Realizada com sucesso!");
+        toastr.success(`${mensagem(method)} com sucesso!`);
         dispatch(init());
       })
       .catch((e) => {
@@ -44,6 +62,14 @@ export function showUpdate(billingCycle) {
   return [
     showTabs("tabUpdate"),
     selectTab("tabUpdate"),
+    initialize("billingCycleForm", billingCycle),
+  ];
+}
+
+export function showDelete(billingCycle) {
+  return [
+    showTabs("tabDelete"),
+    selectTab("tabDelete"),
     initialize("billingCycleForm", billingCycle),
   ];
 }
