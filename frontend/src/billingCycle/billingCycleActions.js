@@ -4,7 +4,7 @@ import { reset as resetForm, initialize } from "redux-form";
 import { showTabs, selectTab } from "../common/tab/tabActions";
 
 const BASE_URL = "http://localhost:3003/api";
-const INITIAL_VALUES = {}
+const INITIAL_VALUES = {};
 
 export function getList() {
   const request = axios.get(`${BASE_URL}/billingCycles`);
@@ -16,9 +16,18 @@ export function getList() {
 
 // fazer a chamada da api do backend fazendo o post dos valores o objeto do metodo create
 export function create(values) {
-  return (dispatch) => {
-    axios
-      .post(`${BASE_URL}/billingCycles`, values)
+  return submit(values, 'post')
+}
+
+export function update(values) {
+  return submit(values, 'put')
+}
+
+function submit(values, method) {
+  return dispatch => {
+    const id = values._id ? values._id : '';
+
+    axios[method](`${BASE_URL}/billingCycles/${id}`, values)
       .then((resp) => {
         toastr.success("Sucesso", "Operação Realizada com sucesso!");
         dispatch(init());
@@ -31,21 +40,21 @@ export function create(values) {
 
 // quando mostrar a tela de alterar ele vai selecionar a aba de alterar e vai inicializar o formulario, passando como paramentro o ciclo de pagamento
 
-export function showUpdate(billingCycle){
-    return [
-        showTabs('tabUpdate'),
-        selectTab('tabUpdate'),
-        initialize('billingCycleForm', billingCycle)
-    ]
+export function showUpdate(billingCycle) {
+  return [
+    showTabs("tabUpdate"),
+    selectTab("tabUpdate"),
+    initialize("billingCycleForm", billingCycle),
+  ];
 }
 
 // actions para inicializar o cadastro
-// a primeira apenas para mostrar a aba de listar e de criar 
-export function init(){
+// a primeira apenas para mostrar a aba de listar e de criar
+export function init() {
   return [
-    showTabs('tabList', 'tabCreate'),
-    selectTab('tabList'),
+    showTabs("tabList", "tabCreate"),
+    selectTab("tabList"),
     getList(),
-    initialize('billingCycleForm', INITIAL_VALUES)
-  ]
+    initialize("billingCycleForm", INITIAL_VALUES),
+  ];
 }

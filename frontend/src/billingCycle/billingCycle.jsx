@@ -10,7 +10,7 @@ import TabsContent from "../common/tab/tabsContent";
 import TabHeader from "../common/tab/tabHeader";
 import TabContent from "../common/tab/tabContent";
 import { selectTab, showTabs } from "../common/tab/tabActions";
-import { create } from "./billingCycleActions";
+import { create, update } from "./billingCycleActions";
 
 import List from '../billingCycle/bilingCycleList'
 import BillingCycleForm from "./billingCycleForm";
@@ -44,7 +44,7 @@ class BillingCycle extends Component {
                                 <BillingCycleForm onSubmit={this.props.create}></BillingCycleForm>
                             </TabContent>
                             <TabContent id='tabUpdate'>
-                                <BillingCycleForm></BillingCycleForm>
+                                <BillingCycleForm onSubmit={this.props.update}></BillingCycleForm>
                             </TabContent>
                             <TabContent id='tabDelete'><h1>Excluir</h1></TabContent>
                         </TabsContent>
@@ -57,5 +57,5 @@ class BillingCycle extends Component {
 
 // a função dispatch vai disparar a ação que vai mudar o estado do objeto para selecionar a aba
 // o mapdispatch recebe o dispatch como parametro e vai chamar a bind fazendo com que o select tab esteja disponivel dentro do componente a partir das props
-const mapDispatchToProps = dispatch => bindActionCreators({selectTab, showTabs, create}, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({selectTab, showTabs, create, update}, dispatch)
 export default connect(null, mapDispatchToProps)(BillingCycle)
