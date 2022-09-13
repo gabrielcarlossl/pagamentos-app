@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 
 import { getList, showUpdate, showDelete } from '../billingCycle/billingCycleActions'
 
+import '../../src/styles/button.css'
+
 class BillingCycleList extends Component{
 
     componentWillMount(){
