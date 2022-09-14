@@ -29,9 +29,9 @@ export default class DashboardSemRedux extends Component {
                 <ContentHeader title='Dashboard' small='Versão 2.0'></ContentHeader>
                 <Content>
                     <Row>
-                        <ValueBox cols='12 4' color='green' icon='bank' value={`R$ ${credit}`} text='Total de Créditos'></ValueBox>
-                        <ValueBox cols='12 4' color='red' icon='credit-card' value={`R$ ${debt}`} text='Total de Débitos'></ValueBox>
-                        <ValueBox cols='12 4' color='blue' icon='money' value={`R$ ${credit - debt}`} text='Valor Consolidado'></ValueBox>
+                        <ValueBox cols='12 4' color='green' icon='bank' value={`R$ ${credit}`} text='Total de Entradas'></ValueBox>
+                        <ValueBox cols='12 4' color='red' icon='credit-card' value={`R$ ${debt}`} text='Total de Saídas'></ValueBox>
+                        <ValueBox cols='12 4' color='blue' icon='money' value={`R$ ${credit - debt}`} text='Saldo Final'></ValueBox>
                     </Row>
                     
                 </Content>
