@@ -1,4 +1,4 @@
-import Grid from "../../layout/grid";
+import Grid from "../layout/grid";
 
 import React from "react";
 

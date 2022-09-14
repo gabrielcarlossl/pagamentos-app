@@ -9,18 +9,17 @@ import TabsHeader from "../common/tab/tabsHeader";
 import TabsContent from "../common/tab/tabsContent";
 import TabHeader from "../common/tab/tabHeader";
 import TabContent from "../common/tab/tabContent";
-import { selectTab, showTabs } from "../common/tab/tabActions";
-import { create, update, remove } from "./billingCycleActions";
 
-import List from '../billingCycle/bilingCycleList'
+import { init, create, update, remove } from "./billingCycleActions";
+
+import List from '../billingCycle/billingCycleList'
 import BillingCycleForm from "./billingCycleForm";
 
 class BillingCycle extends Component {
 
     // função para colocar inicialização padrão da aba
     componentWillMount(){
-        this.props.selectTab('tabList')
-        this.props.showTabs('tabList', 'tabCreate')
+        this.props.init()
     }
     render(){
         return(
@@ -41,13 +40,13 @@ class BillingCycle extends Component {
                                 <List></List>
                             </TabContent>
                             <TabContent id='tabCreate'>
-                                <BillingCycleForm onSubmit={this.props.create}></BillingCycleForm>
+                                <BillingCycleForm onSubmit={this.props.create} submitLabel='Incluir' submitClass='primary'></BillingCycleForm>
                             </TabContent>
                             <TabContent id='tabUpdate'>
-                                <BillingCycleForm onSubmit={this.props.update}></BillingCycleForm>
+                                <BillingCycleForm onSubmit={this.props.update} submitLabel='Alterar' submitClass='info'></BillingCycleForm>
                             </TabContent>
                             <TabContent id='tabDelete'>
-                                <BillingCycleForm onSubmit={this.props.remove} readOnly={true}></BillingCycleForm>
+                                <BillingCycleForm onSubmit={this.props.remove} readOnly={true} submitLabel='Remover' submitClass='danger'></BillingCycleForm>
                             </TabContent>
                         </TabsContent>
                     </Tabs>
@@ -59,5 +58,5 @@ class BillingCycle extends Component {
 
 // a função dispatch vai disparar a ação que vai mudar o estado do objeto para selecionar a aba
 // o mapdispatch recebe o dispatch como parametro e vai chamar a bind fazendo com que o select tab esteja disponivel dentro do componente a partir das props
-const mapDispatchToProps = dispatch => bindActionCreators({selectTab, showTabs, create, update, remove}, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({init, create, update, remove}, dispatch)
 export default connect(null, mapDispatchToProps)(BillingCycle)
